@@ -13,7 +13,7 @@ int convert_unsigned_to_string(unsigned int num)
 	if (num == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	if (num / 10)
@@ -22,7 +22,7 @@ int convert_unsigned_to_string(unsigned int num)
 	_putchar('0' + num % 10);
 	length++;
 
-	return length;
+	return (length);
 }
 
 /**
@@ -39,7 +39,7 @@ int convert_unsigned_to_octal(unsigned int num)
 	if (num == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (num != 0)
@@ -55,13 +55,15 @@ int convert_unsigned_to_octal(unsigned int num)
 		length++;
 	}
 
-	return length;
+	return (length);
 }
 
 /**
- * convert_unsigned_to_hexadecimal - Converts unsigned integer hexadecimal string
+ * convert_unsigned_to_hexadecimal - Converts unsigned
+ * integer hexadecimal string
  * @num: Unsigned integer to be converted
- * @uppercase: Flag showing either to apply uppercase (1) or lowercase letters (0)
+ * @uppercase: Flag showing either to apply uppercase
+ * (1) or lowercase letters (0)
  *
  * Return: Numerical value for characters printed
  */
@@ -75,7 +77,7 @@ int convert_unsigned_to_hexadecimal(unsigned int num, int uppercase)
 	if (num == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (num != 0)
@@ -100,7 +102,7 @@ int convert_unsigned_to_hexadecimal(unsigned int num, int uppercase)
 		length++;
 	}
 
-	return length;
+	return (length);
 }
 
 /**
@@ -118,7 +120,7 @@ int convert_unsigned_to_binary(unsigned int num)
 	if (num == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (num != 0)
@@ -134,5 +136,5 @@ int convert_unsigned_to_binary(unsigned int num)
 		length++;
 	}
 
-	return length;
+	return (length);
 }

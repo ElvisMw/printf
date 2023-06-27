@@ -1,6 +1,4 @@
-
 #include "main.h"
-
 /**
  * convert_integer_to_string - Converts integer to string
  * @num: Represents integer to_be converted
@@ -13,7 +11,7 @@ int convert_integer_to_string(int num)
 	if (num == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 	else if (num < 0)
 	{
