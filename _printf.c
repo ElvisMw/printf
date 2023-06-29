@@ -1,107 +1,69 @@
-#include <stddef.h>
 #include "main.h"
-#include <stdarg.h>
+
+void print_buffer(char buffer[], int *buff_ind);
 
 /**
- * _printf - prints various printf functions
- * @format: Format for string
+ * _printf - Printf function
+ * @format: Format string
  *
- * Return: Numerical value for characters printed
+ * Return: Number of printed characters
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int length = 0;
+	int e_j, printed = 0, printed_chars = 0;
+	int flags, width, precision, size, buff_ind = 0;
+	va_list list;
+	char buffer[BUFF_SIZE];
 
-	va_start(args, format);
+	if (format == NULL)
+		return (-1);
 
-	while (format && *format)
+	va_start(list, format);
+
+	for (e_j = 0; format && format[e_j] != '\0'; e_j++)
 	{
-		if (*format == '%')
+		if (format[e_j] != '%')
 		{
-			format++;
-			if (*format == '\0')
-				break;
-
-			switch (*format)
-			{
-				case 'c':
-					_putchar(va_arg(args, int));
-					length++;
-					break;
-
-				case 's':
-				{
-					char *str = va_arg(args, char *);
-					if (str == NULL)
-						str = "(null)";
-
-					while (*str)
-					{
-						_putchar(*str);
-						str++;
-						length++;
-					}
-					break;
-				}
-
-				case 'd':
-				case 'i':
-					length += convert_integer_to_string(va_arg(args, int));
-					break;
-
-				case 'u':
-					length += convert_unsigned_to_string(va_arg(args, unsigned int));
-					break;
-
-				case 'o':
-					length += convert_unsigned_to_octal(va_arg(args, unsigned int));
-					break;
-
-				case 'x':
-					length += convert_unsigned_to_hexadecimal(va_arg(args, unsigned int), 0);
-					break;
-
-				case 'X':
-					length += convert_unsigned_to_hexadecimal(va_arg(args, unsigned int), 1);
-					break;
-
-				case 'b':
-					length += convert_unsigned_to_binary(va_arg(args, unsigned int));
-					break;
-
-				case 'S':
-					length += print_string(va_arg(args, char *));
-					break;
-
-				case 'p':
-					length += print_address(va_arg(args, void *));
-					break;
-
-				case 'r':
-					length += print_reversed(va_arg(args, char *));
-					break;
-
-				case 'R':
-					length += print_rot13(va_arg(args, char *));
-					break;
-
-				default:
-					_putchar('%');
-					_putchar(*format);
-					length += 2;
-					break;
-			}
+			buffer[buff_ind++] = format[e_j];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
+			/* write(1, &format[e_j], 1); */
+			printed_chars++;
 		}
 		else
 		{
-			_putchar(*format);
-			length++;
+			print_buffer(buffer, &buff_ind);
+			flags = get_flags(format, &e_j);
+			width = get_width(format, &e_j, list);
+			precision = get_precision(format, &e_j, list);
+			size = get_size(format, &e_j);
+			++e_j;
+			printed = handle_print(format, &e_j, list, buffer,
+				flags, width, precision, size);
+			if (printed == -1)
+				return (-1);
+			printed_chars += printed;
 		}
-
-		format++;
 	}
 
-	va_end(args);
-	return (length);
+	print_buffer(buffer, &buff_ind);
+
+	va_end(list);
+
+	return (printed_chars);
+}
+
+/**
+ * print_buffer - Prints the contents of the buffer if it exists
+ * @buffer: Array of characters
+ * @buff_ind: Index at which to add the next character, represents the length
+ *
+ * Return: void
+ */
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
 }

@@ -1,45 +1,44 @@
 #include <limits.h>
 #include <stdio.h>
 #include "main.h"
-#include <stddef.h>
+
 /**
- * main - star of entry point
+ * main - Entry point
  *
  * Return: Always 0
  */
 int main(void)
 {
-	int len_1;
-	int len_2;
-	unsigned int ui;
-	void *addr;
+    int len;
+    int len2;
+    unsigned int ui;
+    void *addr;
 
-	len_1 = _printf("Elvoh and Jimmy's group project.\n");
-	len_2 = printf("Elvoh and Jimmy's group project.\n");
-	ui = (unsigned int)INT_MAX + 1024;
-	addr = (void *)0x7ffe637541f0;
-	_printf("Length:[%d, %i]\n", len_1, len_1);
-	printf("Length:[%d, %i]\n", len_2, len_2);
-	_printf("Negative:[%d]\n", -7628934);
-	printf("Negative:[%d]\n", -7628934);
-	_printf("Unsigned:[%u]\n", ui);
-	printf("Unsigned:[%u]\n", ui);
-	_printf("Unsigned octal:[%o]\n", ui);
-	printf("Unsigned octal:[%o]\n", ui);
-	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	_printf("Character:[%c]\n", 'G');
-	printf("Character:[%c]\n", 'G');
-	_printf("String:[%s]\n", "This is good !");
-	printf("String:[%s]\n", "This is good !");
-	_printf("Address:[%p]\n", addr);
-	printf("Address:[%p]\n", addr);
-	len_1 = _printf("Percent:[%%]\n");
-	len_2 = printf("Percent:[%%]\n");
-	_printf("Len:[%d]\n", len_1);
-	printf("Len:[%d]\n", len_2);
-	_printf("Unknown:[%r]\n");
-	printf("Unknown:[%%r]\n");
-
-	return (0);
+    len = _printf("Elvis and Jimmy's project.\n");
+    len2 = printf("Elvis and Jimmy's Project.\n");
+    ui = (unsigned int)INT_MAX + 1024;
+    addr = (void *)0x7ffe637541f0;
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    _printf("Negative:[%d]\n", -87523);
+    printf("Negative:[%d]\n", -87523);
+    _printf("Unsigned:[%u]\n", ui);
+    printf("Unsigned:[%u]\n", ui);
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+    _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
+    len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    _printf("Unknown:[%r]\n");
+    return (0);
 }
+
