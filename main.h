@@ -23,7 +23,7 @@
  * struct fmt - Struct op
  *
  * @fmt: The format.
- * @fn: The function associated.
+ * @fn: Represents function associated.
  */
 struct fmt
 {
@@ -35,7 +35,7 @@ struct fmt
  * typedef struct fmt fmt_t - Struct op
  *
  * @fmt: The format.
- * @fm_t: The function associated.
+ * @fm_t: Represents function used.
  */
 typedef struct fmt fmt_t;
 
@@ -43,9 +43,9 @@ int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *e_j,
 	va_list list, char buffer[], int flags, int width, int precision, int size);
 
-/****************** FUNCTIONS ******************/
+/********** FUNCTIONS ******************/
 
-/* Functions to print chars and strings */
+/* Functions for printing chars & strings */
 int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_string(va_list types, char buffer[],
@@ -70,15 +70,15 @@ int print_hexa_upper(va_list types, char buffer[],
 int print_hexa(va_list types, char map_to[], char buffer[],
 	int flags, char flag_ch, int width, int precision, int size);
 
-/* Function to print non-printable characters */
+/* Function for printing non-printable characters */
 int print_non_printable(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-/* Function to print memory address */
+/* Function for printing memory address */
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-/* Functions to handle other specifiers */
+/* Functions for handling other specifiers */
 int get_flags(const char *format, int *e_j);
 int get_width(const char *format, int *e_j, va_list list);
 int get_precision(const char *format, int *e_j, va_list list);
@@ -88,7 +88,7 @@ int get_size(const char *format, int *e_j);
 int print_reverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-/* Function to print a string in rot 13 */
+/* Represents function to print a string in rot 13 */
 int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
