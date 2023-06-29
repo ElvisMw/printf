@@ -1,10 +1,5 @@
 #include "main.h"
-<<<<<<< HEAD
-=======
 
-/************************* PRINT UNSIGNED NUMBER *************************/
-
->>>>>>> c23f5c7d47d9aa3298a7ac725587237ab6c77ca1
 /**
  * print_unsigned - Prints an unsigned number
  * @types: List of arguments
@@ -39,11 +34,6 @@ int print_unsigned(va_list types, char buffer[],
 	return (write_unsgnd(0, e_j, buffer, flags, width, precision, size));
 }
 
-<<<<<<< HEAD
-=======
-/************************* PRINT UNSIGNED NUMBER IN OCTAL *************************/
-
->>>>>>> c23f5c7d47d9aa3298a7ac725587237ab6c77ca1
 /**
  * print_octal - Prints an unsigned number in octal notation
  * @types: List of arguments
@@ -85,11 +75,6 @@ int print_octal(va_list types, char buffer[],
 	return (write_unsgnd(0, e_j, buffer, flags, width, precision, size));
 }
 
-<<<<<<< HEAD
-=======
-/************************* PRINT UNSIGNED NUMBER IN HEXADECIMAL *************************/
-
->>>>>>> c23f5c7d47d9aa3298a7ac725587237ab6c77ca1
 /**
  * print_hexadecimal - Prints an unsigned number in hexadecimal notation
  * @types: List of arguments
@@ -107,11 +92,6 @@ int print_hexadecimal(va_list types, char buffer[],
 		flags, 'x', width, precision, size));
 }
 
-<<<<<<< HEAD
-=======
-/************************* PRINT UNSIGNED NUMBER IN UPPER HEXADECIMAL *************************/
-
->>>>>>> c23f5c7d47d9aa3298a7ac725587237ab6c77ca1
 /**
  * print_hexa_upper - Prints an unsigned number in upper hexadecimal notation
  * @types: List of arguments
@@ -129,13 +109,6 @@ int print_hexa_upper(va_list types, char buffer[],
 		flags, 'X', width, precision, size));
 }
 
-<<<<<<< HEAD
-=======
-/************************* PRINT HEXA
-
-DECIMAL NUMBER IN LOWER OR UPPER *************************/
-
->>>>>>> c23f5c7d47d9aa3298a7ac725587237ab6c77ca1
 /**
  * print_hexa - Prints a hexadecimal number in lower or upper case
  * @types: List of arguments
@@ -180,4 +153,3 @@ int print_hexa(va_list types, char map_to[], char buffer[],
 
 	return (write_unsgnd(0, e_j, buffer, flags, width, precision, size));
 }
-
